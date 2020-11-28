@@ -44,8 +44,10 @@ export const lazySlidesOnRight = spec =>
     : spec.slidesToShow;
 
 // get width of an element
-export const getWidth = elem => (elem && elem.offsetWidth) || 0;
-export const getHeight = elem => (elem && elem.offsetHeight) || 0;
+export const getWidth = elem =>
+  (elem && elem.getBoundingClientRect().width) || 0;
+export const getHeight = elem =>
+  (elem && elem.getBoundingClientRect().height) || 0;
 export const getSwipeDirection = (touchObject, verticalSwiping = false) => {
   var xDist, yDist, r, swipeAngle;
   xDist = touchObject.startX - touchObject.curX;
